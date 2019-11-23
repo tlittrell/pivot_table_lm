@@ -3,3 +3,49 @@
 # Documentation for this file format can be found in the kedro docs under `Accessing data`
 # You can access the kedro docs by running `kedro docs`
 
+raw_automobile:
+  type: CSVLocalDataSet
+  filepath: data/01_raw/imports-85.csv
+  load_args:
+    names:
+      - symboling
+      - normalized_losses
+      - make
+      - fuel_type
+      - aspiration
+      - num_doors
+      - body_style
+      - drive_wheels
+      - engine_location
+      - wheel_base
+      - length
+      - width
+      - height
+      - curb_weight
+      - engine_type
+      - num_cylinders
+      - engine_size
+      - fuel_system
+      - bore
+      - stroke
+      - compression_ratio
+      - horsepower
+      - peak_rpm
+      - city_mpg
+      - highway_mpg
+      - price
+    dtype:
+      make: category
+      fuel_type: category
+      aspiration: category
+      num_doors: category
+      body_style: category
+      drive_wheels: category
+      engine_location: category
+      engine_type: category
+      num_cylinders: category
+      fuel_system: category
+
+clean_automobile:
+  type: CSVLocalDataSet
+  filepath: data/05_model_input/clean_automobile.csv

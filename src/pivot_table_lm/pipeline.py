@@ -27,7 +27,8 @@
 # limitations under the License.
 """Pipeline construction."""
 
-from kedro.pipeline import Pipeline
+from kedro.pipeline import Pipeline, node
+from pivot_table_lm.nodes.data_cleaning import clean_data
 
 # Here you can define your data-driven pipeline by importing your functions
 # and adding them to the pipeline as follows:
@@ -57,6 +58,6 @@ def create_pipeline(**kwargs):
 
     """
 
-    pipeline = Pipeline([])
+    pipeline = Pipeline([node(func=clean_data, inputs="raw_automobile", outputs="clean_automobile")])
 
     return pipeline
