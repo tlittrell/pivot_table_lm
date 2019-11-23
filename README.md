@@ -1,8 +1,13 @@
-# pivot_table_linear_model
+# Pivot tables are linear models
 
 ## Overview
 
-This is your new Kedro project, which was generated using `Kedro 0.14.0` by running:
+
+
+
+## Running the project
+
+This is your new Kedro project, which was generated using `Kedro 0.15.4` by running:
 
 ```
 kedro new
@@ -10,7 +15,7 @@ kedro new
 
 Take a look at the [documentation](https://kedro.readthedocs.io) to get started.
 
-## Rules and guidelines
+### Rules and guidelines
 
 In order to get the best out of the template:
  * Please don't remove any lines from the `.gitignore` file provided
@@ -19,7 +24,7 @@ In order to get the best out of the template:
  * Don't commit any credentials or local configuration to your repository
  * Keep all credentials or local configuration in `conf/local/`
 
-## Installing dependencies
+### Installing dependencies
 
 Dependencies should be declared in `src/requirements.txt`.
 
@@ -29,7 +34,7 @@ To install them, run:
 kedro install
 ```
 
-## Running Kedro
+### Running Kedro
 
 You can run your Kedro project with:
 
@@ -37,7 +42,7 @@ You can run your Kedro project with:
 kedro run
 ```
 
-## Testing Kedro
+### Testing Kedro
 
 Have a look at the file `src/tests/test_run.py` for instructions on how to write your tests. You can run your tests with the following command:
 
@@ -48,7 +53,7 @@ kedro test
 To configure the coverage threshold, please have a look at the file `.coveragerc`.
 
 
-### Working with Kedro from notebooks
+#### Working with Kedro from notebooks
 
 In order to use notebooks in your Kedro project, you need to install Jupyter:
 
@@ -83,13 +88,13 @@ kedro ipython
 Running Jupyter or IPython this way provides the following variables in
 scope: `proj_dir`, `proj_name`, `conf`, `io`, `parameters` and `startup_error`.
 
-#### Ignoring notebook output cells in `git`
+##### Ignoring notebook output cells in `git`
 
 In order to automatically strip out all output cell contents before committing to `git`, you can run `kedro activate-nbstripout`. This will add a hook in `.git/config` which will run `nbstripout` before anything is committed to `git`.
 
 > *Note:* Your output cells will be left intact locally.
 
-## Package the project
+### Package the project
 
 In order to package the project's Python code in `.egg` and / or a `.wheel` file, you can run:
 
@@ -99,7 +104,7 @@ kedro package
 
 After running that, you can find the two packages in `src/dist/`.
 
-## Building API documentation
+### Building API documentation
 
 To build API docs for your code using Sphinx, run:
 
