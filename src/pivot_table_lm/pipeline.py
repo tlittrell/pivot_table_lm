@@ -58,6 +58,8 @@ def create_pipeline(**kwargs):
 
     """
 
-    pipeline = Pipeline([node(func=clean_data, inputs="raw_automobile", outputs="clean_automobile")])
+    pipeline = Pipeline(
+        [node(func=clean_data, inputs="raw_automobile", outputs="clean_automobile")]
+    )
 
     return pipeline

@@ -28,9 +28,7 @@
 
 from setuptools import find_packages, setup
 
-entry_point = (
-    "pivot_table_linear_model = pivot_table_lm.run:main"
-)
+entry_point = "pivot_table_linear_model = pivot_table_lm.run:main"
 
 # get the dependencies and installs
 with open("requirements.txt", "r", encoding="utf-8") as f:

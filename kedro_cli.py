@@ -83,6 +83,7 @@ This option cannot be used together with --parallel."""
 def __get_kedro_context__():
     """Used to provide this project's context to plugins."""
     from pivot_table_lm.run import __kedro_context__
+
     return __kedro_context__()
 
 
@@ -92,13 +93,16 @@ def cli():
 
 
 @cli.command()
-@click.option("--runner", "-r", type=str, default=None, multiple=False, help=RUNNER_ARG_HELP)
+@click.option(
+    "--runner", "-r", type=str, default=None, multiple=False, help=RUNNER_ARG_HELP
+)
 @click.option("--parallel", "-p", is_flag=True, multiple=False, help=PARALLEL_ARG_HELP)
 @click.option("--env", "-e", type=str, default=None, multiple=False, help=ENV_ARG_HELP)
 @click.option("--tag", "-t", type=str, default=None, multiple=True, help=TAG_ARG_HELP)
 def run(tag, env, parallel, runner):
     """Run the pipeline."""
     from pivot_table_lm.run import main
+
     if parallel and runner:
         raise KedroCliError(
             "Both --parallel and --runner options cannot be used together. "
@@ -146,19 +150,11 @@ def build_docs():
     """Build the project documentation."""
     python_call("pip", ["install", "src/[docs]"])
     python_call("pip", ["install", "-r", "src/requirements.txt"])
-    python_call(
-        "ipykernel", ["install", "--user", "--name=pivot_table_lm"]
-    )
+    python_call("ipykernel", ["install", "--user", "--name=pivot_table_lm"])
     if Path("docs/build").exists():
         shutil.rmtree("docs/build")
     call(
-        [
-            "sphinx-apidoc",
-            "--module-first",
-            "-o",
-            "docs/source",
-            "src/pivot_table_lm",
-        ]
+        ["sphinx-apidoc", "--module-first", "-o", "docs/source", "src/pivot_table_lm",]
     )
     call(["sphinx-build", "-M", "html", "docs/source", "docs/build", "-a"])
 
