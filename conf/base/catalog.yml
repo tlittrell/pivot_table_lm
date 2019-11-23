@@ -47,5 +47,5 @@ raw_automobile:
       fuel_system: category
 
 clean_automobile:
-  type: CSVLocalDataSet
-  filepath: data/05_model_input/clean_automobile.csv
+  type: ParquetLocalDataSet
+  filepath: data/05_model_input/clean_automobile.parquet
