@@ -11,4 +11,7 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     # Update dtypes
     df = df.astype({col: float for col in cols})
 
+    # drop NaNs
+    df = df.dropna()
+
     return df

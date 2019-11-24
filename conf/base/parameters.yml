@@ -1,0 +1,4 @@
+models_to_compare:
+  - LinearRegression: "price ~ 1"
+  - LinearRegression: "price ~ make"
+  - RandomForestRegressor: "all"
