@@ -4,7 +4,9 @@ from sklearn.model_selection import cross_validate
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor
 import patsy
+import numpy as np
 import pandas as pd
+import logging
 
 model_selector = {
     "LinearRegression": LinearRegression(fit_intercept=False),
@@ -19,7 +21,8 @@ def compare_models(df: pd.DataFrame, conf: dict) -> List[dict]:
         name, formula = list(model.keys())[0], list(model.values())[0]
         mod = model_selector[name]
         scores = cross_validate_from_formula(df, formula, mod)
-        result.append({name: scores})
+        result.append({(name, formula): scores})
+        logging.info(f"{(name, formula)} has median score {np.median(scores).round(2)}")
     return result
 
 
@@ -29,5 +32,5 @@ def cross_validate_from_formula(df: pd.DataFrame, formula: str, model):
             [col for col in df.drop("price", axis=1).columns]
         )
     y, x = patsy.dmatrices(formula, df, return_type="dataframe")
-    scores = cross_validate(model, x, y.values.ravel(), cv=5, scoring="r2")
+    scores = cross_validate(model, x, y.values.ravel(), cv=10, scoring="r2")
     return scores["test_score"]

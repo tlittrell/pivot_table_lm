@@ -34,17 +34,6 @@ raw_automobile:
       - city_mpg
       - highway_mpg
       - price
-    dtype:
-      make: category
-      fuel_type: category
-      aspiration: category
-      num_doors: category
-      body_style: category
-      drive_wheels: category
-      engine_location: category
-      engine_type: category
-      num_cylinders: category
-      fuel_system: category
 
 clean_automobile:
   type: ParquetLocalDataSet
