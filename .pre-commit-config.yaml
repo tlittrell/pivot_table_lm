@@ -14,3 +14,6 @@ repos:
     - id: check-ast
     - id: requirements-txt-fixer
     - id: debug-statements
+    - id: flake8
+      args: ['--ignore=E501 E231']
+      exclude: kedro_cli|\.ipython
