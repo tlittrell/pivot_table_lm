@@ -1,8 +1,32 @@
-# Pivot tables are linear models
+# PivotTable: The hot new ML method of 2020
 
 ## Overview
 
-My workflow as a data scientist
+* Pivot tables are linear models and we should evaluate/appreciate them
+  as such. I want to convince you to take pivot tables seriously as a
+  model and also show how we can expand on pivot tables as a serious
+  part of the modeling process.
+* Benefit: pivot tables can have surprisingly good performance
+  * Link that paper about classification
+  * DAG fixed effect logic
+* Benefit: pivot tables are super fast to "train" even in Excel and
+  super interpretable
+  * If we think of them as a super basic fixed effects model there are
+    even super fast gpu accelerated ways to train gigantic pivot tables
+  * So interpretable people don't think about them as models
+* A lot of the downsides of pivot tables can be formalized
+  * Have you ever made both a count and a mean column in your pivot
+    table? Then you've discovered the need for regularization and the
+    James-Stein paradox. We could imagine a hierarchical Bayes pivot.
+  * Dealing with continuous categories:
+  * Looking at a pivot table and not believing the results because of
+    confouding -- if you think this is just a linear model then add more
+    controls (when available)
+  * I have two pivot tables and I don't know how to "combine" them --
+    the Frisch-Waugh-Lovell theorem will do this for you
+  * Are these two groups "really" different -- we have statistical tests
+  * Changing interpretation by changing linear form -- adding
+    intercept/main effects
 
 
 ## Running the project
